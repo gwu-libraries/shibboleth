@@ -10,6 +10,8 @@ The following instructions describe how to configure a Shibboleth Service Provid
   
 This will create a folder located in /etc/shibboleth that contains the necessary configuration files for Shibboleth.
 
+Configure the Shibboleth settings for your Service Provider:
+
 * Modify the following in the default shibboleth2.xml file
 
 	% sudo vi /etc/shibboleth/shibboleth2.xml
@@ -37,7 +39,77 @@ This will create a folder located in /etc/shibboleth that contains the necessary
 * Restart the Shibboleth service daemon
 
 	% sudo service shibd restart
+
+Shibboleth requires SSL for its transactions.  Setup SSL:
 	
 * Setup SSL for Apache2
 
 	% sudo a2enmod ssl
+
+Generate server keys and a certificate signing request:
+
+* Create server key
+
+	% cd ~
+	% openssl genrsa -des3 -out hostname.key 2048
+You will be asked to set a pass phrase for the key, don't lose this.
+	% openssl rsa -in hostname.key -out hostname.key.insecure
+	% mv hostname.key hostname.key.secure
+	% mv hostname.key.insecure hostname.key
+	
+* Create a certificate signing request
+
+	% openssl req -new -key hostname.key -out hostname.csr
+
+Download the hostname.csr file and attach it to an email to ithelp@gwu.edu.  In the body of the message request an InCommon signed certificate and specify that you are using Apache2 as your webserver.  The Division of IT will return to you an email that you can download a hostname.cert file for your server.
+
+* Uplaod the hostname.cert file to your server.
+
+* Install the hostname.cert file on your server
+
+	% sudo mv hostname.cert /etc/ssl/certs
+
+* Install the hostname.key file your generated earlier:
+
+	% sudo mv hostname.key /etc/ssl/private
+
+Create an Apache2 virtual host file for SSL ie: default-ssl
+
+* Enable the virtual host file for SSL
+
+	% sudo a2ensite default-ssl
+	
+Add the Shibboleth configurations to your SSL virtual host file:
+
+	% sudo vi /etc/apache2/sites-available/default-ssl
+	
+	<Location "/Shibboleth.sso">
+	 SetHandler shib-handler
+      	</Location>
+      	
+      	<Location /secure>
+	 # This is an example Location directive that redirects apache over to the IdP.
+	 AuthType shibboleth
+	 ShibRequestSetting requireSession 1
+	 require valid-user
+        </Location>
+       
+        
+      	SSLEngine On
+      	SSLOptions +StrictRequire
+      	SSLCertificateFile /etc/ssl/certs/hostname.cert
+      	SSLCertificateKeyFile /etc/ssl/private/hostname.key
+
+Restart Apache2
+
+	% sudo service apache2 restart
+
+Download your Shibboleth Service Provider metadata file	
+
+* Navigate to https://sp.example.org/Shibboleth.sso/Metadata
+
+Download the Metadata.xml file and rename it to hostname-metadata.xml. Attach the file to an email to ithelp@gwu.edu.  In the body of the message request that your service provider be registered with the GWU Shibboleth Identify provider.  Make note that the metadata.xml file is attached to the email.
+
+Once your Service provider has been registered you should be able to navigate to your server and test Shibboleth with the GWU Identity Provider.
+
+* Navigate to https://sp.example.org/secure

@@ -57,6 +57,12 @@ Configure the Shibboleth settings for your Service Provider:
 	 % sudo a2enmod shib2
 ```
 
+* Generate an  x.509 certificate for Shibboleth to use:
+
+```
+	 % sudo shib-keygen
+```
+
 * Restart the Shibboleth service daemon
 
 ```

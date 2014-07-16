@@ -5,9 +5,11 @@ The following instructions describe how to configure a Shibboleth Service Provid
 
 * Install the required Apache2 module
 
+'''
 	 % sudo apt-get update
 	 % sudo apt-get install libapache2-mod-shib2
-  
+''''
+
 This will create a folder located in /etc/shibboleth that contains the necessary configuration files for Shibboleth.
 
 Configure the Shibboleth settings for your Service Provider:

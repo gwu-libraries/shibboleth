@@ -29,7 +29,7 @@ Configure the Shibboleth settings for your Service Provider:
 	 </SSO>
   
 	 <MetadataProvider type="XML"
-	 uri="http://wayf.incommonfederation.org/InCommon/InCommon-metadata.xml"  backingFilePath="InCommon-metadata.xml" reloadInterval="7200">
+	 uri="http://wayf.incommonfederation.org/InCommon/InCommon-metadata.xml" backingFilePath="InCommon-metadata.xml" reloadInterval="7200">
       		<MetadataFilter type="RequireValidUntil" maxValidityInterval="2419200"/>
 	 	<MetadataFilter type="Signature" certificate="incommon.pem"/>
 	 </MetadataProvider>
@@ -119,7 +119,6 @@ Add the Shibboleth configurations to your SSL virtual host file:
 	 ShibRequestSetting requireSession 1
 	 require valid-user
 	</Location>
-       
         
 	SSLEngine On
 	SSLOptions +StrictRequire

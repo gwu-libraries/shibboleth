@@ -5,19 +5,21 @@ The following instructions describe how to configure a Shibboleth Service Provid
 
 * Install the required Apache2 module
 
-'''
+```
 	 % sudo apt-get update
 	 % sudo apt-get install libapache2-mod-shib2
-''''
+```
 
 This will create a folder located in /etc/shibboleth that contains the necessary configuration files for Shibboleth.
 
 Configure the Shibboleth settings for your Service Provider:
 
 * Modify the following in the default shibboleth2.xml file
-
+```
 	 % sudo vi /etc/shibboleth/shibboleth2.xml
+```
 
+```
 	 <ApplicationDefaults entityID="https://sp.example.org/shibboleth"
           REMOTE_USER="eppn persistent-id targeted-id">
   
@@ -31,6 +33,7 @@ Configure the Shibboleth settings for your Service Provider:
       		<MetadataFilter type="RequireValidUntil" maxValidityInterval="2419200"/>
 	 	<MetadataFilter type="Signature" certificate="incommon.pem"/>
 	 </MetadataProvider>
+```
 
 * Download the InCommon security keys
 

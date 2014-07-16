@@ -19,15 +19,25 @@ Configure the Shibboleth settings for your Service Provider:
 	 % sudo vi /etc/shibboleth/shibboleth2.xml
 ```
 
+* Modify the entityID line of the config file to reflect the name of your server:
+
 ```
 	 <ApplicationDefaults entityID="https://sp.example.org/shibboleth"
           REMOTE_USER="eppn persistent-id targeted-id">
-  
+```
+
+* Replace the SSO entityID section with the following:
+
+```
 	 <SSO entityID="https://singlesignon.gwu.edu/idp/shibboleth"
        	  discoveryProtocol="SAMLDS" discoveryURL="https://ds.example.org/DS/WAYF">
           SAML2 SAML1
 	 </SSO>
-  
+```
+
+* Reaplce the MetadataProvider section with the following:
+
+```
 	 <MetadataProvider type="XML"
 	 uri="http://wayf.incommonfederation.org/InCommon/InCommon-metadata.xml" backingFilePath="InCommon-metadata.xml" reloadInterval="7200">
       		<MetadataFilter type="RequireValidUntil" maxValidityInterval="2419200"/>

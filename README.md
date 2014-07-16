@@ -41,6 +41,12 @@ Configure the Shibboleth settings for your Service Provider:
 	 % sudo wget -O /etc/shibboleth/incommon.pem https://wayf.incommonfederation.org/bridge/certs/incommon.pem
 ```
 
+* Enable the shib2 module for Apache
+
+```
+	 % sudo a2enmod shib2
+```
+
 * Restart the Shibboleth service daemon
 
 ```

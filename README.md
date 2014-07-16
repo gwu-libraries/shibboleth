@@ -29,7 +29,7 @@ Configure the Shibboleth settings for your Service Provider:
 	 </SSO>
   
 	 <MetadataProvider type="XML"
-	 uri="http://wayf.incommonfederation.org/InCommon/InCommon-metadata.xml" 	 	 	 	 backingFilePath="InCommon-metadata.xml" reloadInterval="7200">
+	 uri="http://wayf.incommonfederation.org/InCommon/InCommon-metadata.xml"  backingFilePath="InCommon-metadata.xml" reloadInterval="7200">
       		<MetadataFilter type="RequireValidUntil" maxValidityInterval="2419200"/>
 	 	<MetadataFilter type="Signature" certificate="incommon.pem"/>
 	 </MetadataProvider>
@@ -111,20 +111,20 @@ Add the Shibboleth configurations to your SSL virtual host file:
 ```
 	<Location "/Shibboleth.sso">
 	 SetHandler shib-handler
-      	</Location>
+	</Location>
       	
-      	<Location /secure>
+	<Location /secure>
 	 # This is an example Location directive that redirects apache over to the IdP.
 	 AuthType shibboleth
 	 ShibRequestSetting requireSession 1
 	 require valid-user
-        </Location>
+	</Location>
        
         
-      	SSLEngine On
-      	SSLOptions +StrictRequire
-      	SSLCertificateFile /etc/ssl/certs/hostname.cert
-      	SSLCertificateKeyFile /etc/ssl/private/hostname.key
+	SSLEngine On
+	SSLOptions +StrictRequire
+	SSLCertificateFile /etc/ssl/certs/hostname.cert
+	SSLCertificateKeyFile /etc/ssl/private/hostname.key
 ```
 
 Restart Apache2

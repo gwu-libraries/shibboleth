@@ -141,5 +141,9 @@
     <Attribute name="urn:oid:2.5.4.15" id="businessCategory"/>
     <Attribute name="urn:oid:2.5.4.19" id="physicalDeliveryOfficeName"/>
     -->
+    
+   <!--  Member Of -->
+   <Attribute id="isMemberOf" name="urn:mace:dir:attribute-def:isMemberOf"/>
+   <Attribute id="isMemberOf" name="urn:oid:1.3.6.1.4.1.5923.1.5.1.1"/>
 
 </Attributes>

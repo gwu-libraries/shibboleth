@@ -51,6 +51,8 @@ Configure the Shibboleth settings for your Service Provider:
 	 % sudo wget -O /etc/shibboleth/incommon.pem https://wayf.incommonfederation.org/bridge/certs/incommon.pem
 ```
 
+* Customize the localLogout.html file provide by replacing all references to "https://someapp.library.gwu.edu" with your URL.
+
 * Enable the shib2 module for Apache
 
 ```

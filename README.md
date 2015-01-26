@@ -104,7 +104,7 @@ You will be asked to set a pass phrase for the key, don't lose this.
 
 Download the hostname.csr file and attach it to an email to ithelp@gwu.edu.  In the body of the message request an InCommon signed certificate and specify that you are using Apache2 as your webserver.  The Division of IT will return to you an email that you can download a hostname.cert file for your server.
 
-* Uplaod the hostname.cert file to your server.
+* Upload the hostname.cert file to your server.
 
 * Install the hostname.cert file on your server
 

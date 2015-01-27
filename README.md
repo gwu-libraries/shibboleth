@@ -158,7 +158,7 @@ Restart Apache2
 
 Download your Shibboleth Service Provider metadata file	
 
-* Navigate to https://<your server>/Shibboleth.sso/Metadata
+* Navigate to https://sp.example.org/Shibboleth.sso/Metadata (and substituting your server's name for sp.example.org)
 
 Download the Metadata.xml file and rename it to hostname-metadata.xml. Attach the file to an email to ithelp@gwu.edu.  In the body of the message request that your service provider be registered with the GWU Shibboleth Identify provider.  Make note that the metadata.xml file is attached to the email.
 

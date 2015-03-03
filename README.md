@@ -51,7 +51,13 @@ Configure the Shibboleth settings for your Service Provider:
 	 % sudo wget -O /etc/shibboleth/incommon.pem https://wayf.incommonfederation.org/bridge/certs/incommon.pem
 ```
 
-* Customize the localLogout.html file for your application by modifying lines 63, 85, and 87 as approriate.
+* Copy and customize the localLogout.html file for your application:
+
+```
+cp localLogout.html.template localLogout.html
+```
+
+Modify the page title in the head section (around line 5), and the application names and urls in lines 63, 85, and 87 as approriate.
 
 * Enable the shib2 module for Apache
 

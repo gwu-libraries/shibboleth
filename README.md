@@ -152,8 +152,12 @@ Add the Shibboleth configurations to your SSL virtual host file:
         
 	SSLEngine On
 	SSLOptions +StrictRequire
+	SSLProtocol ALL -SSLv2 -SSLv3
+	SSLHonorCipherOrder On
+	SSLCipherSuite ECDH+AESGCM:DH+AESGCM:ECDH+AES256:DH+AES256:ECDH+AES128:DH+AES:ECDH+3DES:DH+3DES:RSA+AESGCM:RSA+AES:RSA+3DES:!aNULL:!MD5:!DSS
 	SSLCertificateFile /etc/ssl/certs/hostname.cert
 	SSLCertificateKeyFile /etc/ssl/private/hostname.key
+	SSLCertificateChainFile /etc/ssl/intermediate/incommon-ssl.ca-bundle
 ```
 
 Restart Apache2

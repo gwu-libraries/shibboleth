@@ -81,8 +81,8 @@
     <article class="libsite-container container">
         <div class="row-fluid">
             <div class="span12"> <!-- this is a 'content' column that spans all 12 of the columns wihtin this content area -->
-                <h1><i style="font-size:3em; padding-right:.2em;" class="fa fa-sign-out"></i>You've signed out of GW Scholarship</h1>
-        <p>Thanks for using Library Application. Contact us with any questions or comments <a href=https://gwsufia-test.wrlc.org/contact>here</a>. Close your browser log terminate all GWU Single Sign On sessions.</p>
+                <h1><i style="font-size:3em; padding-right:.2em;" class="fa fa-sign-out"></i>You've signed out of Library Application</h1>
+        <p>Thanks for using Library Application. Contact us with any questions or comments <a href=https://library.gwu.edu/contact>here</a>. Close your browser log terminate all GWU Single Sign On sessions.</p>
         <ul>
             <li>Return to <a href="https://someapp.library.gwu.edu">Library Application</a></li>
             <li><a href="http://library.gwu.edu">Libraries Website</a></li>
